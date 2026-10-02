@@ -1,0 +1,5 @@
+class <%= state_class_name %> < <%= parent_class_name %>
+  belongs_to :<%= singular_name %>
+
+  def readonly? = super || (persisted? && !destroyed_by_association)
+end

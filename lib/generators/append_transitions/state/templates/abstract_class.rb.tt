@@ -1,0 +1,5 @@
+class <%= database_class_name %> < ApplicationRecord
+  self.abstract_class = true
+
+  connects_to database: { <%= ActiveRecord.writing_role %>: :<%= options[:database] %> }
+end

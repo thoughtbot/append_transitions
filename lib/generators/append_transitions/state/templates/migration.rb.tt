@@ -1,0 +1,11 @@
+class <%= migration_class_name %> < ActiveRecord::Migration[<%= ActiveRecord::Migration.current_version %>]
+  def change
+    create_table :<%= state_table_name %><%= primary_key_type %> do |t|
+      t.references :<%= singular_name %>, null: false, foreign_key: <%= foreign_key_option %>, index: false<%= foreign_key_type %>
+      t.string :<%= state_column %>, null: false
+      t.timestamps
+    end
+
+    <%= index_lines.join("\n      ") %>
+  end
+end
